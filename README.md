@@ -11,7 +11,7 @@ The [MATLAB Runtime](https://www.mathworks.com/products/compiler/matlab-runtime.
 To build an image using the `Dockerfile` in this repository, run the command
 
 ```
-➜ docker build -t "murphylab/matlabmcr2019b" .
+➜ docker build -t "icaoberg/matlabmcr2019b" .
 ```
 
 This should build an image
@@ -20,7 +20,7 @@ This should build an image
 ➜  docker container ls -a
 
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                        PORTS               NAMES
-48dde52f2bc8        murphylab/matlabmcr2019b     "/bin/bash -c 'pyt..."   45 seconds ago      Exited (0) 39 seconds ago                         frosty_wescoff
+48dde52f2bc8        icaoberg/matlabmcr2019b     "/bin/bash -c 'pyt..."   45 seconds ago      Exited (0) 39 seconds ago                         frosty_wescoff
 ```
 
 ## Contributing
