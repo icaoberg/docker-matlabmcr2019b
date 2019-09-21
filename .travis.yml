@@ -10,8 +10,5 @@ branches:
   only:
     - master
 
-before_install:
-  - docker build -t murphylab/matlab .
-
 script:
-  - docker images
+  - bash ./build.sh
