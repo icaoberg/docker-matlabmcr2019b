@@ -51,7 +51,7 @@ ENV LD_LIBRARY_PATH /opt/mcr/v97/runtime/glnxa64:/opt/mcr/v97/bin/glnxa64:/opt/m
 ENV XAPPLRESDIR /opt/mcr/v97/X11/app-defaults
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y wget
+RUN apt-get install -y wget --quiet
 ###############################################################################################
 
 ###############################################################################################
