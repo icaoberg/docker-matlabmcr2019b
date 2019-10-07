@@ -33,7 +33,7 @@ RUN cd /mcr-install && \
     cd /mcr-install && \
     echo "Unzipping container" && \
     unzip -q MATLAB_Runtime_R2019b_glnxa64.zip && \
-    ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
+    ./install -destinationFolder /opt/mcr -agreeToLicense yes && \
     cd / && \
     echo "Removing temporary files" && \
     rm -rf mcr-install
