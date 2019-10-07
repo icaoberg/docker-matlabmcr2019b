@@ -12,14 +12,14 @@ LABEL Version="2019b"
 # UPDATE OS AND INSTALL TOOLS
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y build-essential git \
+RUN apt-get -q update && apt-get -q install -y --no-install-recommends apt-utils
+RUN apt-get install -q -y build-essential git \
     unzip \
     xorg \
     wget \
     tree \
     curl
-RUN apt-get upgrade -y
+RUN apt-get upgrade -q -y
 ###############################################################################################
 
 ###############################################################################################
@@ -29,7 +29,7 @@ RUN echo "Downloading Matlab MCR 2019b"
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr
 RUN cd /mcr-install && \
-    wget -nc http://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/0/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_glnxa64.zip && \
+    wget -nc --quiet http://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/0/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_glnxa64.zip && \
     cd /mcr-install && \
     echo "Unzipping container" && \
     unzip -q MATLAB_Runtime_R2019b_glnxa64.zip && \
