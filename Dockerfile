@@ -36,7 +36,7 @@ RUN cd /mcr-install && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
     cd / && \
     echo "Removing temporary files" && \
-    rm -rvf mcr-install
+    rm -rf mcr-install
 ###############################################################################################
 
 ###############################################################################################
