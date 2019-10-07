@@ -12,14 +12,14 @@ LABEL Version="2019b"
 # UPDATE OS AND INSTALL TOOLS
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get -q update && apt-get -q install -y --no-install-recommends apt-utils
-RUN apt-get install -q -y build-essential git \
+RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends apt-utils
+RUN apt-get install -qq -y build-essential git \
     unzip \
     xorg \
     wget \
     tree \
     curl
-RUN apt-get upgrade -q -y
+RUN apt-get upgrade -qq -y
 ###############################################################################################
 
 ###############################################################################################
@@ -50,8 +50,8 @@ RUN mv -v /opt/mcr/v97/sys/os/glnxa64/libstdc++.so.6 /opt/mcr/v97/sys/os/glnxa64
 ENV LD_LIBRARY_PATH /opt/mcr/v97/runtime/glnxa64:/opt/mcr/v97/bin/glnxa64:/opt/mcr/v97/sys/os/glnxa64
 ENV XAPPLRESDIR /opt/mcr/v97/X11/app-defaults
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y wget --quiet
+RUN apt-get -qq update && apt-get install --qq -y --no-install-recommends apt-utils
+RUN apt-get install -qq -y wget --quiet
 ###############################################################################################
 
 ###############################################################################################
