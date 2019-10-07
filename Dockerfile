@@ -12,14 +12,14 @@ LABEL Version="2019b"
 # UPDATE OS AND INSTALL TOOLS
 USER root
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y build-essential git \
+RUN apt-get update && apt-get install -qq --no-install-recommends apt-utils
+RUN apt-get install -qq build-essential git \
     unzip \
     xorg \
     wget \
     tree \
     curl
-RUN apt-get upgrade -y
+RUN apt-get upgrade -qq > /dev/null
 ###############################################################################################
 
 ###############################################################################################
@@ -29,10 +29,10 @@ RUN echo "Downloading Matlab MCR 2019b"
 RUN mkdir /mcr-install && \
     mkdir /opt/mcr
 RUN cd /mcr-install && \
-    wget -nc http://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/0/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_glnxa64.zip && \
+    wget -qq-nc http://ssd.mathworks.com/supportfiles/downloads/R2019b/Release/0/deployment_files/installer/complete/glnxa64/MATLAB_Runtime_R2019b_glnxa64.zip && \
     cd /mcr-install && \
     echo "Unzipping container" && \
-    unzip -q MATLAB_Runtime_R2019b_glnxa64.zip && \
+    unzip -qq MATLAB_Runtime_R2019b_glnxa64.zip && \
     ./install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
     cd / && \
     echo "Removing temporary files" && \
@@ -50,8 +50,8 @@ RUN mv -v /opt/mcr/v97/sys/os/glnxa64/libstdc++.so.6 /opt/mcr/v97/sys/os/glnxa64
 ENV LD_LIBRARY_PATH /opt/mcr/v97/runtime/glnxa64:/opt/mcr/v97/bin/glnxa64:/opt/mcr/v97/sys/os/glnxa64
 ENV XAPPLRESDIR /opt/mcr/v97/X11/app-defaults
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
-RUN apt-get install -y wget --quiet
+RUN apt-get update && apt-get install -qq --no-install-recommends apt-utils
+RUN apt-get install -y wget -qq > /dev/null
 ###############################################################################################
 
 ###############################################################################################
